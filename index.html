@@ -1,4 +1,3 @@
-    
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,10 +11,34 @@
     <meta name="twitter:description" content="This is a test to see if this comment "there is a bug with open graph that causes the title to be cut off" is still valid" />
 
   </head>
-    <body>
-<h3>Share</h3>
+  <body>
+    <h1>
+      Test Web Share
+    </h1>
+
+    <h3>Fetch Image before Share</h3>
+    <input type="checkbox" name="fetch" id="fetch" /> Enabled
+
+    <h3>Share</h3>
     <button id="test-web-share">
       Share
+    </button>
+
+    <h3>Share with Delay</h3>
+    <button id="test-web-share-250">
+      Share - 250 ms
+    </button>
+
+    <button id="test-web-share-550">
+      Share - 500 ms
+    </button>
+
+    <button id="test-web-share-999">
+      Share - 999 ms
+    </button>
+
+    <button id="test-web-share-1005">
+      Share - 1005 ms
     </button>
 
     <script>
