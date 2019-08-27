@@ -26,35 +26,14 @@
         });
       }
       
-      function webShare() {
-        if (navigator.share) {
-          if (window.fetchEnabled) {
-            let myRequest = new Request('https://mkonikov.com/images/instants.jpg');
-            fetch(myRequest)
-            .then(function(response) {
-              if (!response.ok) {
-                throw new Error('HTTP error, status = ' + response.status);
-              }
-              return response.blob();
-            })
-            .then(function(response) {
-              directShare();
-            })
-          }
-          else {
-            directShare();
-          }
-        } else {
-          //window.alert('web share not supported');
-        }
-      }
+
       document.querySelector('#test-web-share').addEventListener('click', () => {
-        webShare()
+        directShare()
       });
       
         function codeAddress() {
           alert("auto");
-            webShare();
+            directShare();
         }
         window.onload = codeAddress;
     </script>
