@@ -14,16 +14,18 @@
     <script>
       
       function directShare() {
-        navigator.share({
-          title: 'My awesome post!',
-          text: 'This post may or may not contain the answer to the universe',
-          url: window.location.href
-        }).then(() => {
-          //window.alert('Thanks for sharing!');
-        })
-        .catch(err => {
-          //window.alert(`Couldn't share because of`, err);
-        });
+        if (navigator.share !== undefined) {
+            navigator.share({
+              title: 'My awesome post!',
+              text: 'This post may or may not contain the answer to the universe',
+              url: window.location.href
+            }).then(() => {
+              //window.alert('Thanks for sharing!');
+            })
+            .catch(err => {
+              //window.alert(`Couldn't share because of`, err);
+            });
+        }
       }
       
 
