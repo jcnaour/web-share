@@ -6,30 +6,26 @@
   </head>
   <body>
 
-    <h3>Fetch Image before Share</h3>
-    <input type="checkbox" name="fetch" id="fetch" /> Enabled
-
     <h3>Share</h3>
     <button id="test-web-share">
       Share
     </button>
 
     <script>
-        document.querySelector('#fetch').addEventListener('change', function() {
-          window.fetchEnabled = this.checked;
-        });
+      
       function directShare() {
         navigator.share({
           title: 'My awesome post!',
           text: 'This post may or may not contain the answer to the universe',
           url: window.location.href
         }).then(() => {
-          window.alert('Thanks for sharing!');
+          //window.alert('Thanks for sharing!');
         })
         .catch(err => {
-          window.alert(`Couldn't share because of`, err);
+          //window.alert(`Couldn't share because of`, err);
         });
       }
+      
       function webShare() {
         if (navigator.share) {
           if (window.fetchEnabled) {
@@ -49,26 +45,11 @@
             directShare();
           }
         } else {
-          window.alert('web share not supported');
+          //window.alert('web share not supported');
         }
-      }
-      function delayedWebShare(delay) {
-        window.setTimeout(webShare, delay);
       }
       document.querySelector('#test-web-share').addEventListener('click', () => {
         webShare()
-      });
-      document.querySelector('#test-web-share-250').addEventListener('click', () => {
-        delayedWebShare(250)
-      });
-      document.querySelector('#test-web-share-550').addEventListener('click', () => {
-        delayedWebShare(550)
-      });
-      document.querySelector('#test-web-share-999').addEventListener('click', () => {
-        delayedWebShare(999)
-      });
-      document.querySelector('#test-web-share-1005').addEventListener('click', () => {
-        delayedWebShare(1005)
       });
     </script>
   </body>
